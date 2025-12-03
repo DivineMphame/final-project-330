@@ -1,0 +1,421 @@
+:root {
+    /* Brand palette */
+    --color-primary:        #558386;
+    --color-primary-light:  #6ab0b6;
+    --color-primary-dark:   #3d7272;
+    --color-primary-darker: #1c3333;
+  
+    --color-secondary:      #3b8d3e;
+    --color-secondary-dark: #2f6932;
+    --color-accent:         #f5a623;
+  
+    --color-text:           #0a2533;
+    --color-text-muted:     #555;
+    --color-bg:             #fff;
+    --color-bg-alt:         #f1f5f5;
+    --color-gray-light:     #f3f3f3;
+    --color-gray:           #ececec;
+    --color-overlay:        rgba(0, 0, 0, 0.5);
+  
+    /* Typography */
+    --font-logo:            "Big Shoulders Stencil", sans‑serif;
+    --font-heading:         "Sofia Sans Semi Condensed", sans‑serif;
+    --font-subheading:      "Sofia Sans Extra Condensed", sans‑serif;
+    --font-body:            "Golos Text", sans‑serif;
+    --font-system:          Helvetica, Arial, sans‑serif;
+  
+  }
+
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px; /* 16px = 1rem */
+  /*? Dark-Light Mode*/
+  /* background-color: #121212; */
+  /* color: white; */
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+  background-color: var(--color-primary-dark);
+}
+
+input:active,
+textarea:active,
+select:active,
+button:active {
+  outline: 2px solid var(--color-primary-darker);
+  background-color: var(--color-primary-dark);
+  transform: scale(0.98);
+}
+
+/* HEADER */
+header {
+  padding: 0.3em 0.4em;
+}
+
+header .logo {
+  font-family: var(--font-logo);
+  font-size: 3rem;
+  color: var(--color-primary);
+  display: inline-block;
+}
+
+.logo img {
+  width: 50px;
+  margin: -3px -10px;
+  padding: 0;
+  pointer-events: none;
+}
+
+header a {
+  text-decoration: none;
+}
+
+.header__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__top #greeting {
+  padding-top: 0.8em;
+  font-size: 0.875rem;
+  color: var(--color-text);
+}
+
+.header__top i {
+  align-self: end;
+}
+
+#user {
+  font-family: var(--font-body);
+  font-size: 1.5em;
+  color: var(--color-text);
+}
+
+main h2,
+.subheader {
+  font-family: var(--font-heading);
+  text-align: center;
+  font-size: 1.7rem;
+}
+
+/* FOOTER */
+.footer {
+  font-family: var(--font-heading);
+  background: var(--color-bg);
+  color: #333;
+  text-align: center;
+  padding: 3rem 1.5rem;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.footer-logo img {
+  max-width: 50px;
+  margin-bottom: 1rem;
+}
+
+.footer-title {
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+}
+
+.footer h2 {
+  font-size: 2rem;
+  margin: 0.5rem 0 1.5rem;
+  color: #222;
+}
+
+.footer-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  color: var(--color-text-muted);
+}
+
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: #333;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.social-link i {
+  font-size: 1.5rem;
+}
+
+.social-link:hover {
+  color: var(--color-primary-dark);
+}
+
+/* Add to your CSS file */
+.loading-spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001;
+  width: 50px;
+  height: 50px;
+  border: 4px solid var(--color-bg-alt);
+  border-top: 4px solid var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@media (max-width: 600px) {
+  /* NAVIGATION */
+
+  /* The bottom nav container */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    /* Start it hidden by translating down 100% of its own height */
+    transform: translateY(160%);
+    transition: transform 0.3s ease-in-out;
+
+    /* For demonstration, let's give it a background */
+    background-color: var(--color-bg);
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.15);
+
+    /* Ensure the nav is on top of other content */
+    z-index: 999;
+    padding: 0.5rem 0;
+  }
+
+  /* Class that will slide it up (i.e., show) */
+  .bottom-nav.show {
+    transform: translateY(0);
+  }
+
+  /* The nav list */
+  .bottom-nav ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .bottom-nav .nav-label {
+    display: none;
+  }
+
+  .bottom-nav ul li a {
+    text-decoration: none;
+    color: #333;
+    padding: 0.5rem;
+    display: inline-block;
+  }
+
+  .bottom-nav ul li.active a {
+    color: var(--color-primary-dark);
+  }
+
+  .bottom-nav ul li:nth-child(2) {
+    margin-right: 20px;
+  }
+  .bottom-nav ul li:nth-child(3) {
+    margin-left: 40px;
+  }
+
+  /* The center icon wrapper */
+  .center-icon {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -30px;
+  }
+
+  .icon-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--color-primary-darker);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .icon-circle img {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Larger screens: “promote” the NAVIGATION into header */
+@media (min-width: 601px) {
+  .bottom-nav i {
+    display: none;
+  }
+
+  .bottom-nav .nav-label {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: #333;
+    padding: 0.5rem 1rem;
+    transition: color 0.2s;
+  }
+
+  /* Layout the labels nicely */
+  .bottom-nav ul {
+    display: flex;
+    justify-content: end;
+    gap: 1.5rem;
+  }
+
+  .bottom-nav ul li:first-child {
+    list-style: none;
+  }
+
+  .bottom-nav li.active .nav-label {
+    color: var(--color-primary-dark);
+    font-weight: 600;
+  }
+
+  .bottom-nav .nav-label:hover {
+    color: var(--color-primary-darker);
+    text-decoration: underline;
+  }
+}
+
+/* LARGER SCREENS */
+@media (min-width: 800px) {
+  html {
+    font-size: 18px; /* 18px = 1rem */
+  }
+
+  header {
+    padding: 10px 20px;
+  }
+
+  #greeting i {
+    color: #4d8194;
+  }
+
+  .header__top #greeting {
+    margin-top: -1.5rem;
+    font-size: 1em;
+  }
+
+  .header__top,
+  #user {
+    padding-left: 30px;
+  }
+
+  .header__top i {
+    font-size: 1.5rem;
+  }
+
+  main h2 {
+    font-size: 2.2rem;
+  }
+
+  .chef-note {
+    max-width: 900px;
+    padding: 3rem;
+  }
+
+  .chef-note h2 {
+    font-size: 2rem;
+  }
+
+  .chef-note > p:not(:first-of-type) {
+    font-size: 1.1rem;
+  }
+
+  .footer {
+    padding: 4rem 2rem;
+  }
+
+  .footer h2 {
+    font-size: 2.2rem;
+  }
+
+  .footer-text {
+    font-size: 1.1rem;
+  }
+
+  .social-link i {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  html {
+    font-size: 20px; /* 18px = 1rem */
+  }
+
+  .logo img {
+    width: 57px;
+    height: 57px;
+  }
+
+  .bottom-nav ul {
+    justify-content: center;
+  }
+
+  .chef-note {
+    max-width: 1000px;
+  }
+
+  .chef-note h2 {
+    font-size: 2.2rem;
+  }
+
+  .chef-note > p:not(:first-of-type) {
+    font-size: 1.2rem;
+  }
+
+  .footer {
+    padding: 5rem 3rem;
+  }
+
+  .footer h2 {
+    font-size: 2.5rem;
+  }
+
+  .footer-text {
+    font-size: 1.2rem;
+  }
+}

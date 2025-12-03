@@ -10,8 +10,8 @@
 
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/divinemphame/final-project-wdd330.git
-cd final-project-wdd330
+git clone https://github.com/divinemphame/final-project-330.git
+cd final-project-330
 ```
 
 ### 2️⃣ Install dependencies
