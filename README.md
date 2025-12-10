@@ -1,4 +1,4 @@
-# [Click here to visit Skimmer!](https://skimmer-chef.netlify.app/)
+# [Click here to visit Skimmer!](https://69305b5081627921dc9bbd3b--skimmerr.netlify.app/)
 
 # Skimmer: A fast, responsive recipe-skimming app.
 
